@@ -25,7 +25,11 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
           </ul>
-        </div><!--/.nav-collapse -->
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="<spring:url value="/logout.do"/>">Logout</a></li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
       </div>
     </div>
 
