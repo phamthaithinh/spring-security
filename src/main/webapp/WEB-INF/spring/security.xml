@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<security:http pattern="/resources/**" security="none" />
-	<security:http auto-config="true" use-expressions="true">
+	<security:http auto-config="true" use-expressions="true" authentication-manager-ref="customAuthenticationManqger">
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/login.do" access="permitAll" />
 		<security:intercept-url pattern="/accessdenied.do" access="permitAll" />
@@ -17,18 +17,6 @@
 		<security:access-denied-handler error-page="/accessdenied.do"/>
 		<security:logout logout-success-url="/login.do" logout-url="/logout.do"/>
 	</security:http>
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<!-- <security:user-service>
-				<security:user name="devjav" password="devjav" authorities="ROLE_USER" />
-				<security:user name="admin" password="devjav" authorities="ROLE_ADMIN" />
-			</security:user-service>
-			 -->
-			<security:jdbc-user-service data-source-ref="dataSource" role-prefix="ROLE_"
-		  users-by-username-query=
-		    "select username,password, 1 from users where username=?"
-		  authorities-by-username-query=
-		    "select a.username, b.name from users a,roles b, roles_users c where a.username =? and a.id=c.user_id and b.id=c.role_id " />
-		</security:authentication-provider>
-	</security:authentication-manager>
+	 <bean id="customAuthenticationManqger" class="com.devjav.security.CustomAuthenticate"/>
+	 
 </beans>
