@@ -25,13 +25,16 @@
 			</c:if>
 			<div class="form-group">
 				<label for="username">Username</label> <input type="text"
-					id="username" class="form-control" required="required" name="username"
-					placeholder="Enter username">
+					id="username" class="form-control" required="required"
+					name="username" placeholder="Enter username">
 			</div>
 			<div class="form-group">
-				<label for="password">Password</label> <input id="c"
-					type="password" class="form-control" required="required" name="password"
+				<label for="password">Password</label> <input id="c" type="password"
+					class="form-control" required="required" name="password"
 					placeholder="Password">
+			</div>
+			<div class="form-group">
+				<input type="checkbox" name="_spring_security_remember_me"><span>Remember me</span>
 			</div>
 			<button type="submit" class="btn btn-default">Login</button>
 		</form:form>
